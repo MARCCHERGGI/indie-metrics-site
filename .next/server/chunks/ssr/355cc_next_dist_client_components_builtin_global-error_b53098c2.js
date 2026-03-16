@@ -1,3 +1,0 @@
-module.exports=[66780,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(20010);a.n(d("[project]/Playground/indie-metrics-site/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},27590,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(20010);a.n(d("[project]/Playground/indie-metrics-site/node_modules/next/dist/client/components/builtin/global-error.js"))},45901,a=>{"use strict";a.i(66780);var b=a.i(27590);a.n(b)}];
-
-//# sourceMappingURL=355cc_next_dist_client_components_builtin_global-error_b53098c2.js.map
