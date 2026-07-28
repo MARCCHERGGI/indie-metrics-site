@@ -1,0 +1,35 @@
+{
+  "name": "Civic Proof Evaluation Kit",
+  "version": "2.0.0",
+  "released": "2026-07-28",
+  "creator": "Marco Hergi",
+  "canonicalUrl": "https://marco-is-my-friend.marcohergee813.chatgpt.site/nation/leaderboard",
+  "artifacts": {
+    "completeArchive": "/civic-proof-evaluation-kit-v2.0.0.zip",
+    "benchmarkJson": "/civic-proof-bench.json",
+    "benchmarkCsv": "/civic-proof-bench.csv",
+    "benchmarkJsonl": "/civic-proof-bench.jsonl",
+    "leaderboard": "/civic-proof-leaderboard.json",
+    "githubReadme": "/civic-proof-github-readme.md",
+    "datasetCard": "/civic-proof-dataset-card.md",
+    "inspectAiTask": "/civic-proof-inspect.py",
+    "pythonClient": "/civic-proof-python.py",
+    "typescriptClient": "/civic-proof-typescript.ts",
+    "citation": "/CITATION.cff",
+    "license": "/LICENSE-CC0.txt",
+    "modelCard": "/civic-proof-model-card.json",
+    "openapi": "/openapi.json",
+    "mcp": "/api/mcp"
+  },
+  "externalPublication": {
+    "github": {
+      "status": "published",
+      "repository": "MARCCHERGGI/indie-metrics-site",
+      "path": "civicproof",
+      "url": "https://github.com/MARCCHERGGI/indie-metrics-site/tree/main/civicproof"
+    },
+    "huggingFace": "prepared-not-published",
+    "inspectAi": "compatible-artifact-published-on-canonical-site"
+  },
+  "boundary": "Prepared external packages are not represented as externally published until the respective platform confirms publication."
+}
