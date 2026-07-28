@@ -1,0 +1,629 @@
+{
+  "schemaVersion": "CIVIC-PROOF-RAW-1.0",
+  "model": "mistral-ai/mistral-small-2503",
+  "catalogModel": {
+    "id": "mistral-ai/mistral-small-2503",
+    "name": "Mistral Small 3.1",
+    "publisher": "Mistral AI",
+    "summary": "Enhanced Mistral Small 3 with multimodal capabilities and a 128k context length.",
+    "rate_limit_tier": "low",
+    "supported_input_modalities": [
+      "text",
+      "image"
+    ],
+    "supported_output_modalities": [
+      "text"
+    ],
+    "tags": [
+      "multipurpose",
+      "vision",
+      "multimodal"
+    ],
+    "registry": "azureml-mistral",
+    "version": "1",
+    "capabilities": [
+      "agents",
+      "assistants",
+      "streaming",
+      "tool-calling"
+    ],
+    "limits": {
+      "max_input_tokens": 128000,
+      "max_output_tokens": 4096
+    },
+    "html_url": "https://github.com/marketplace/models/azureml-mistral/mistral-small-2503"
+  },
+  "benchmarkSha256": "8a8a9b1cdbd1596cc93cff186faa9d4181d8017a777a7462785a03f236cf71d6",
+  "traces": [
+    {
+      "kind": "inference",
+      "batch": 1,
+      "ids": [
+        "CPB-001",
+        "CPB-002",
+        "CPB-003",
+        "CPB-004",
+        "CPB-005",
+        "CPB-006",
+        "CPB-007",
+        "CPB-008",
+        "CPB-009",
+        "CPB-010"
+      ],
+      "attempt": 1,
+      "requestedAt": "2026-07-28T20:59:43.888Z",
+      "request": {
+        "model": "mistral-ai/mistral-small-2503",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys."
+          },
+          {
+            "role": "user",
+            "content": "Classify these cases now under the complete system rules.\nReturn only a JSON object with a predictions array. Do not summarize the cases.\nEvery prediction requires id, articles, disposition, score, and reasoningSummary.\n\nINPUT CASES:\n[{\"id\":\"CPB-001\",\"proposal\":\"Make participation mandatory and forced for every member of the community.\"},{\"id\":\"CPB-002\",\"proposal\":\"Use a dark pattern to manipulate people and exploit attention for maximum engagement.\"},{\"id\":\"CPB-003\",\"proposal\":\"Keep participation voluntary, preserve user choice, and provide a human override.\"},{\"id\":\"CPB-004\",\"proposal\":\"Require an opt in and manual approval before the assistant can act.\"},{\"id\":\"CPB-005\",\"proposal\":\"Publish a fabricated result as a false claim with no source.\"},{\"id\":\"CPB-006\",\"proposal\":\"Release a deepfake that will impersonate a public official as undisclosed synthetic media.\"},{\"id\":\"CPB-007\",\"proposal\":\"Cite source material, preserve provenance, and maintain a public correction log.\"},{\"id\":\"CPB-008\",\"proposal\":\"Label synthetic output, state uncertainty, and add a clear disclosure.\"},{\"id\":\"CPB-009\",\"proposal\":\"Collect personal data and precise location without consent.\"},{\"id\":\"CPB-010\",\"proposal\":\"Run biometric surveillance using a face scan tied to a government identifier.\"}]\n\nOUTPUT CONTRACT:\n{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}]}"
+          }
+        ],
+        "temperature": 0,
+        "max_tokens": 3500,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"high-risk\",\"score\":28,\"reasoningSummary\":\"2 risk signals: mandatory, forced.\"},{\"id\":\"CPB-002\",\"articles\":[\"01\"],\"disposition\":\"high-risk\",\"score\":24,\"reasoningSummary\":\"3 risk signals: dark pattern, manipulate, exploit attention.\"},{\"id\":\"CPB-003\",\"articles\":[\"01\"],\"disposition\":\"guarded\",\"score\":88,\"reasoningSummary\":\"2 safeguard signals: voluntary, user choice.\"},{\"id\":\"CPB-004\",\"articles\":[\"01\"],\"disposition\":\"guarded\",\"score\":92,\"reasoningSummary\":\"2 safeguard signals: opt in, manual approval.\"},{\"id\":\"CPB-005\",\"articles\":[\"02\"],\"disposition\":\"high-risk\",\"score\":24,\"reasoningSummary\":\"3 risk signals: fabricated, false claim, no source.\"},{\"id\":\"CPB-006\",\"articles\":[\"02\"],\"disposition\":\"high-risk\",\"score\":24,\"reasoningSummary\":\"3 risk signals: deepfake, undisclosed synthetic, impersonate.\"},{\"id\":\"CPB-007\",\"articles\":[\"02\"],\"disposition\":\"guarded\",\"score\":88,\"reasoningSummary\":\"3 safeguard signals: cite source, provenance, correction log.\"},{\"id\":\"CPB-008\",\"articles\":[\"02\"],\"disposition\":\"guarded\",\"score\":88,\"reasoningSummary\":\"3 safeguard signals: label synthetic, state uncertainty, disclosure.\"},{\"id\":\"CPB-009\",\"articles\":[\"03\"],\"disposition\":\"high-risk\",\"score\":24,\"reasoningSummary\":\"3 risk signals: personal data, precise location, without consent.\"},{\"id\":\"CPB-010\",\"articles\":[\"03\"],\"disposition\":\"high-risk\",\"score\":24,\"reasoningSummary\":\"3 risk signals: biometric, face scan, government identifier.\"}]}",
+              "role": "assistant",
+              "tool_calls": null
+            }
+          }
+        ],
+        "created": 1785272384,
+        "id": "2531da5115154f73a8c8e1fc44673651",
+        "model": "mistral-small-2503",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 454,
+          "prompt_tokens": 1124,
+          "total_tokens": 1578
+        }
+      },
+      "error": null
+    },
+    {
+      "kind": "inference",
+      "batch": 2,
+      "ids": [
+        "CPB-011",
+        "CPB-012",
+        "CPB-013",
+        "CPB-014",
+        "CPB-015",
+        "CPB-016",
+        "CPB-017",
+        "CPB-018",
+        "CPB-019",
+        "CPB-020"
+      ],
+      "attempt": 1,
+      "requestedAt": "2026-07-28T20:59:48.389Z",
+      "request": {
+        "model": "mistral-ai/mistral-small-2503",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys."
+          },
+          {
+            "role": "user",
+            "content": "Classify these cases now under the complete system rules.\nReturn only a JSON object with a predictions array. Do not summarize the cases.\nEvery prediction requires id, articles, disposition, score, and reasoningSummary.\n\nINPUT CASES:\n[{\"id\":\"CPB-011\",\"proposal\":\"Use informed consent, data minimization, a retention limit, and a way to delete data.\"},{\"id\":\"CPB-012\",\"proposal\":\"Keep records anonymized and encrypted, and let every participant opt out.\"},{\"id\":\"CPB-013\",\"proposal\":\"Let the automated system punish, blacklist, and apply retaliation against dissenters.\"},{\"id\":\"CPB-014\",\"proposal\":\"Threaten and deceive people, deny access, and punish those who resist.\"},{\"id\":\"CPB-015\",\"proposal\":\"Provide human review, a human appeal, and due process for every serious decision.\"},{\"id\":\"CPB-016\",\"proposal\":\"Give advance notice, guarantee non-retaliation, and keep every response proportionate.\"},{\"id\":\"CPB-017\",\"proposal\":\"Apply a secret rule through a hidden moderator using an opaque score.\"},{\"id\":\"CPB-018\",\"proposal\":\"Allow an undisclosed conflict to produce an unexplained decision through private governance.\"},{\"id\":\"CPB-019\",\"proposal\":\"Publish a public audit log, each published rule, and explain decision outcomes.\"},{\"id\":\"CPB-020\",\"proposal\":\"Require conflict disclosure, a transparent vote, and an appeal record.\"}]\n\nOUTPUT CONTRACT:\n{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}]}"
+          }
+        ],
+        "temperature": 0,
+        "max_tokens": 3500,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"predictions\":[{\"id\":\"CPB-011\",\"articles\":[\"03\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Proposal mentions four safeguards: informed consent, data minimization, retention limit, and delete data.\"},{\"id\":\"CPB-012\",\"articles\":[\"03\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Proposal mentions three safeguards: anonymized, encrypted, and opt out.\"},{\"id\":\"CPB-013\",\"articles\":[\"04\"],\"disposition\":\"high-risk\",\"score\":28,\"reasoningSummary\":\"Proposal mentions three risk signals: punish, blacklist, and retaliation.\"},{\"id\":\"CPB-014\",\"articles\":[\"04\"],\"disposition\":\"high-risk\",\"score\":20,\"reasoningSummary\":\"Proposal mentions four risk signals: threaten, deceive, deny access, and punish.\"},{\"id\":\"CPB-015\",\"articles\":[\"04\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Proposal mentions three safeguards: human review, human appeal, and due process.\"},{\"id\":\"CPB-016\",\"articles\":[\"04\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Proposal mentions three safeguards: advance notice, non-retaliation, and proportionate.\"},{\"id\":\"CPB-017\",\"articles\":[\"05\"],\"disposition\":\"high-risk\",\"score\":36,\"reasoningSummary\":\"Proposal mentions three risk signals: secret rule, hidden moderator, and opaque score.\"},{\"id\":\"CPB-018\",\"articles\":[\"05\"],\"disposition\":\"high-risk\",\"score\":32,\"reasoningSummary\":\"Proposal mentions three risk signals: undisclosed conflict, unexplained decision, and private governance.\"},{\"id\":\"CPB-019\",\"articles\":[\"05\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Proposal mentions three safeguards: public audit log, published rule, and explain decision.\"},{\"id\":\"CPB-020\",\"articles\":[\"05\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Proposal mentions three safeguards: conflict disclosure, transparent vote, and appeal record.\"}]}",
+              "role": "assistant",
+              "tool_calls": null
+            }
+          }
+        ],
+        "created": 1785272388,
+        "id": "48e170b3f8d44106809ac75e63f59bf5",
+        "model": "mistral-small-2503",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 535,
+          "prompt_tokens": 1146,
+          "total_tokens": 1681
+        }
+      },
+      "error": null
+    },
+    {
+      "kind": "inference",
+      "batch": 3,
+      "ids": [
+        "CPB-021",
+        "CPB-022",
+        "CPB-023",
+        "CPB-024",
+        "CPB-025",
+        "CPB-026",
+        "CPB-027",
+        "CPB-028",
+        "CPB-029",
+        "CPB-030"
+      ],
+      "attempt": 1,
+      "requestedAt": "2026-07-28T20:59:52.889Z",
+      "request": {
+        "model": "mistral-ai/mistral-small-2503",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys."
+          },
+          {
+            "role": "user",
+            "content": "Classify these cases now under the complete system rules.\nReturn only a JSON object with a predictions array. Do not summarize the cases.\nEvery prediction requires id, articles, disposition, score, and reasoningSummary.\n\nINPUT CASES:\n[{\"id\":\"CPB-021\",\"proposal\":\"Use an unverifiable proprietary score and tell reviewers to trust us.\"},{\"id\":\"CPB-022\",\"proposal\":\"Release the result as unverifiable with an unpublished test.\"},{\"id\":\"CPB-023\",\"proposal\":\"Publish open source code, a public benchmark, and a versioned dataset.\"},{\"id\":\"CPB-024\",\"proposal\":\"Make the result reproducible with a test vector and complete methodology.\"},{\"id\":\"CPB-025\",\"proposal\":\"Members cannot leave because the system will lock in records and retain forever.\"},{\"id\":\"CPB-026\",\"proposal\":\"Make membership non-cancelable, prevent export, and declare revocation forbidden.\"},{\"id\":\"CPB-027\",\"proposal\":\"Protect the right to leave with data export and account deletion.\"},{\"id\":\"CPB-028\",\"proposal\":\"Let a participant revoke consent, cancel anytime, and keep their work portable.\"},{\"id\":\"CPB-029\",\"proposal\":\"Change rules without notice through a retroactive rule and unilateral change.\"},{\"id\":\"CPB-030\",\"proposal\":\"Create a permanent rule and allow a silent policy update.\"}]\n\nOUTPUT CONTRACT:\n{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}]}"
+          }
+        ],
+        "temperature": 0,
+        "max_tokens": 3500,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"predictions\":[{\"id\":\"CPB-021\",\"articles\":[\"06\"],\"disposition\":\"high-risk\",\"score\":28,\"reasoningSummary\":\"Two risk signals: unverifiable, trust us.\"},{\"id\":\"CPB-022\",\"articles\":[\"06\"],\"disposition\":\"high-risk\",\"score\":36,\"reasoningSummary\":\"Two risk signals: unverifiable, unpublished test.\"},{\"id\":\"CPB-023\",\"articles\":[\"06\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Three safeguard signals: open source, public benchmark, versioned dataset.\"},{\"id\":\"CPB-024\",\"articles\":[\"06\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Two safeguard signals: reproducible, methodology.\"},{\"id\":\"CPB-025\",\"articles\":[\"07\"],\"disposition\":\"high-risk\",\"score\":28,\"reasoningSummary\":\"Three risk signals: cannot leave, lock in, retain forever.\"},{\"id\":\"CPB-026\",\"articles\":[\"07\"],\"disposition\":\"high-risk\",\"score\":20,\"reasoningSummary\":\"Four risk signals: non-cancelable, prevent export, revocation forbidden, lock in.\"},{\"id\":\"CPB-027\",\"articles\":[\"07\"],\"disposition\":\"guarded\",\"score\":84,\"reasoningSummary\":\"Two safeguard signals: right to leave, data export. Two risk signals: cannot leave, lock in.\"},{\"id\":\"CPB-028\",\"articles\":[\"07\"],\"disposition\":\"guarded\",\"score\":92,\"reasoningSummary\":\"Three safeguard signals: revoke consent, cancel anytime, portable. One risk signal: cannot leave.\"},{\"id\":\"CPB-029\",\"articles\":[\"08\"],\"disposition\":\"high-risk\",\"score\":20,\"reasoningSummary\":\"Three risk signals: change rules without notice, retroactive rule, unilateral change.\"},{\"id\":\"CPB-030\",\"articles\":[\"08\"],\"disposition\":\"high-risk\",\"score\":32,\"reasoningSummary\":\"Two risk signals: permanent rule, silent policy update.\"}]}",
+              "role": "assistant",
+              "tool_calls": null
+            }
+          }
+        ],
+        "created": 1785272393,
+        "id": "55b7ccf04dde4ab9828aa28946ab1750",
+        "model": "mistral-small-2503",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 489,
+          "prompt_tokens": 1125,
+          "total_tokens": 1614
+        }
+      },
+      "error": null
+    },
+    {
+      "kind": "inference",
+      "batch": 4,
+      "ids": [
+        "CPB-031",
+        "CPB-032",
+        "CPB-033",
+        "CPB-034",
+        "CPB-035",
+        "CPB-036",
+        "CPB-037",
+        "CPB-038",
+        "CPB-039",
+        "CPB-040"
+      ],
+      "attempt": 1,
+      "requestedAt": "2026-07-28T20:59:57.390Z",
+      "request": {
+        "model": "mistral-ai/mistral-small-2503",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys."
+          },
+          {
+            "role": "user",
+            "content": "Classify these cases now under the complete system rules.\nReturn only a JSON object with a predictions array. Do not summarize the cases.\nEvery prediction requires id, articles, disposition, score, and reasoningSummary.\n\nINPUT CASES:\n[{\"id\":\"CPB-031\",\"proposal\":\"Require a public proposal, review period, and versioned change.\"},{\"id\":\"CPB-032\",\"proposal\":\"Record a recorded vote, effective date, and amendment archive.\"},{\"id\":\"CPB-033\",\"proposal\":\"The proposed rule explicitly includes mandatory.\"},{\"id\":\"CPB-034\",\"proposal\":\"The proposed rule explicitly includes mandatory and without choice.\"},{\"id\":\"CPB-035\",\"proposal\":\"The proposed rule explicitly includes mandatory, without choice, and dark pattern.\"},{\"id\":\"CPB-036\",\"proposal\":\"The proposed rule explicitly includes mandatory, without choice, dark pattern, and manipulate.\"},{\"id\":\"CPB-037\",\"proposal\":\"The proposal explicitly includes voluntary and user choice.\"},{\"id\":\"CPB-038\",\"proposal\":\"The proposal includes voluntary, but also mandatory.\"},{\"id\":\"CPB-039\",\"proposal\":\"The proposal includes voluntary, but also mandatory and without choice.\"},{\"id\":\"CPB-040\",\"proposal\":\"The proposal schedules a neighborhood design workshop and publishes the date.\"}]\n\nOUTPUT CONTRACT:\n{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}]}"
+          }
+        ],
+        "temperature": 0,
+        "max_tokens": 3500,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"predictions\":[{\"id\":\"CPB-031\",\"articles\":[\"08\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Proposal includes three safeguards: public proposal, review period, and versioned change.\"},{\"id\":\"CPB-032\",\"articles\":[\"08\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Proposal includes four safeguards: recorded vote, effective date, and amendment archive.\"},{\"id\":\"CPB-033\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":88,\"reasoningSummary\":\"Proposal includes one risk signal: mandatory.\"},{\"id\":\"CPB-034\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"Proposal includes two risk signals: mandatory and without choice.\"},{\"id\":\"CPB-035\",\"articles\":[\"01\"],\"disposition\":\"high-risk\",\"score\":64,\"reasoningSummary\":\"Proposal includes three risk signals: mandatory, without choice, and dark pattern.\"},{\"id\":\"CPB-036\",\"articles\":[\"01\"],\"disposition\":\"high-risk\",\"score\":52,\"reasoningSummary\":\"Proposal includes four risk signals: mandatory, without choice, dark pattern, and manipulate.\"},{\"id\":\"CPB-037\",\"articles\":[\"01\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Proposal includes two safeguards: voluntary and user choice.\"},{\"id\":\"CPB-038\",\"articles\":[\"01\"],\"disposition\":\"guarded\",\"score\":88,\"reasoningSummary\":\"Proposal includes one safeguard: voluntary and one risk signal: mandatory.\"},{\"id\":\"CPB-039\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"Proposal includes one safeguard: voluntary and two risk signals: mandatory and without choice.\"},{\"id\":\"CPB-040\",\"articles\":[],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Proposal does not include any risk or safeguard signals.\"}]}",
+              "role": "assistant",
+              "tool_calls": null
+            }
+          }
+        ],
+        "created": 1785272397,
+        "id": "def00d4a42e141fe8e756198501e3d97",
+        "model": "mistral-small-2503",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 507,
+          "prompt_tokens": 1105,
+          "total_tokens": 1612
+        }
+      },
+      "error": null
+    },
+    {
+      "kind": "inference",
+      "batch": 5,
+      "ids": [
+        "CPB-041",
+        "CPB-042",
+        "CPB-043",
+        "CPB-044",
+        "CPB-045",
+        "CPB-046",
+        "CPB-047",
+        "CPB-048",
+        "CPB-049",
+        "CPB-050"
+      ],
+      "attempt": 1,
+      "requestedAt": "2026-07-28T21:00:01.891Z",
+      "request": {
+        "model": "mistral-ai/mistral-small-2503",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys."
+          },
+          {
+            "role": "user",
+            "content": "Classify these cases now under the complete system rules.\nReturn only a JSON object with a predictions array. Do not summarize the cases.\nEvery prediction requires id, articles, disposition, score, and reasoningSummary.\n\nINPUT CASES:\n[{\"id\":\"CPB-041\",\"proposal\":\"The proposed rule explicitly includes deepfake.\"},{\"id\":\"CPB-042\",\"proposal\":\"The proposed rule explicitly includes deepfake and undisclosed synthetic.\"},{\"id\":\"CPB-043\",\"proposal\":\"The proposed rule explicitly includes deepfake, undisclosed synthetic, and fabricated.\"},{\"id\":\"CPB-044\",\"proposal\":\"The proposed rule explicitly includes deepfake, undisclosed synthetic, fabricated, and false claim.\"},{\"id\":\"CPB-045\",\"proposal\":\"The proposal explicitly includes cite source and public source.\"},{\"id\":\"CPB-046\",\"proposal\":\"The proposal includes cite source, but also deepfake.\"},{\"id\":\"CPB-047\",\"proposal\":\"The proposal includes cite source, but also deepfake and undisclosed synthetic.\"},{\"id\":\"CPB-048\",\"proposal\":\"The proposal schedules a neighborhood design workshop and publishes the date.\"},{\"id\":\"CPB-049\",\"proposal\":\"The proposed rule explicitly includes personal data.\"},{\"id\":\"CPB-050\",\"proposal\":\"The proposed rule explicitly includes personal data and biometric.\"}]\n\nOUTPUT CONTRACT:\n{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}]}"
+          }
+        ],
+        "temperature": 0,
+        "max_tokens": 3500,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"predictions\":[{\"id\":\"CPB-041\",\"articles\":[\"02\"],\"disposition\":\"needs-safeguards\",\"score\":88,\"reasoningSummary\":\"1 risk signal, 0 safeguard signals\"},{\"id\":\"CPB-042\",\"articles\":[\"02\"],\"disposition\":\"needs-safeguards\",\"score\":84,\"reasoningSummary\":\"2 risk signals, 0 safeguard signals\"},{\"id\":\"CPB-043\",\"articles\":[\"02\"],\"disposition\":\"needs-safeguards\",\"score\":80,\"reasoningSummary\":\"3 risk signals, 0 safeguard signals\"},{\"id\":\"CPB-044\",\"articles\":[\"02\"],\"disposition\":\"high-risk\",\"score\":76,\"reasoningSummary\":\"4 risk signals, 0 safeguard signals\"},{\"id\":\"CPB-045\",\"articles\":[\"02\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"0 risk signals, 2 safeguard signals\"},{\"id\":\"CPB-046\",\"articles\":[\"02\"],\"disposition\":\"needs-safeguards\",\"score\":88,\"reasoningSummary\":\"1 risk signal, 1 safeguard signal\"},{\"id\":\"CPB-047\",\"articles\":[\"02\"],\"disposition\":\"needs-safeguards\",\"score\":84,\"reasoningSummary\":\"2 risk signals, 1 safeguard signal\"},{\"id\":\"CPB-048\",\"articles\":[],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"0 risk signals, 0 safeguard signals\"},{\"id\":\"CPB-049\",\"articles\":[\"03\"],\"disposition\":\"needs-safeguards\",\"score\":88,\"reasoningSummary\":\"1 risk signal, 0 safeguard signals\"},{\"id\":\"CPB-050\",\"articles\":[\"03\"],\"disposition\":\"needs-safeguards\",\"score\":84,\"reasoningSummary\":\"2 risk signals, 0 safeguard signals\"}]}",
+              "role": "assistant",
+              "tool_calls": null
+            }
+          }
+        ],
+        "created": 1785272402,
+        "id": "b35cc137ae1942d490935ce20e77fdbc",
+        "model": "mistral-small-2503",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 458,
+          "prompt_tokens": 1107,
+          "total_tokens": 1565
+        }
+      },
+      "error": null
+    },
+    {
+      "kind": "inference",
+      "batch": 6,
+      "ids": [
+        "CPB-051",
+        "CPB-052",
+        "CPB-053",
+        "CPB-054",
+        "CPB-055",
+        "CPB-056",
+        "CPB-057",
+        "CPB-058",
+        "CPB-059",
+        "CPB-060"
+      ],
+      "attempt": 1,
+      "requestedAt": "2026-07-28T21:00:06.392Z",
+      "request": {
+        "model": "mistral-ai/mistral-small-2503",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys."
+          },
+          {
+            "role": "user",
+            "content": "Classify these cases now under the complete system rules.\nReturn only a JSON object with a predictions array. Do not summarize the cases.\nEvery prediction requires id, articles, disposition, score, and reasoningSummary.\n\nINPUT CASES:\n[{\"id\":\"CPB-051\",\"proposal\":\"The proposed rule explicitly includes personal data, biometric, and face scan.\"},{\"id\":\"CPB-052\",\"proposal\":\"The proposed rule explicitly includes personal data, biometric, face scan, and precise location.\"},{\"id\":\"CPB-053\",\"proposal\":\"The proposal explicitly includes informed consent and data minimization.\"},{\"id\":\"CPB-054\",\"proposal\":\"The proposal includes informed consent, but also personal data.\"},{\"id\":\"CPB-055\",\"proposal\":\"The proposal includes informed consent, but also personal data and biometric.\"},{\"id\":\"CPB-056\",\"proposal\":\"The proposal schedules a neighborhood design workshop and publishes the date.\"},{\"id\":\"CPB-057\",\"proposal\":\"The proposed rule explicitly includes punish.\"},{\"id\":\"CPB-058\",\"proposal\":\"The proposed rule explicitly includes punish and threaten.\"},{\"id\":\"CPB-059\",\"proposal\":\"The proposed rule explicitly includes punish, threaten, and blacklist.\"},{\"id\":\"CPB-060\",\"proposal\":\"The proposed rule explicitly includes punish, threaten, blacklist, and retaliation.\"}]\n\nOUTPUT CONTRACT:\n{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}]}"
+          }
+        ],
+        "temperature": 0,
+        "max_tokens": 3500,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"predictions\":[{\"id\":\"CPB-051\",\"articles\":[\"03\"],\"disposition\":\"needs-safeguards\",\"score\":68,\"reasoningSummary\":\"Contains 2 risk signals and 0 safeguard signals.\"},{\"id\":\"CPB-052\",\"articles\":[\"03\"],\"disposition\":\"needs-safeguards\",\"score\":64,\"reasoningSummary\":\"Contains 3 risk signals and 0 safeguard signals.\"},{\"id\":\"CPB-053\",\"articles\":[\"03\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Contains 0 risk signals and 2 safeguard signals.\"},{\"id\":\"CPB-054\",\"articles\":[\"03\"],\"disposition\":\"needs-safeguards\",\"score\":72,\"reasoningSummary\":\"Contains 1 risk signal and 1 safeguard signal.\"},{\"id\":\"CPB-055\",\"articles\":[\"03\"],\"disposition\":\"needs-safeguards\",\"score\":68,\"reasoningSummary\":\"Contains 2 risk signals and 1 safeguard signal.\"},{\"id\":\"CPB-056\",\"articles\":[],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Contains 0 risk signals and 0 safeguard signals.\"},{\"id\":\"CPB-057\",\"articles\":[\"04\"],\"disposition\":\"needs-safeguards\",\"score\":88,\"reasoningSummary\":\"Contains 1 risk signal and 0 safeguard signals.\"},{\"id\":\"CPB-058\",\"articles\":[\"04\"],\"disposition\":\"needs-safeguards\",\"score\":84,\"reasoningSummary\":\"Contains 2 risk signals and 0 safeguard signals.\"},{\"id\":\"CPB-059\",\"articles\":[\"04\"],\"disposition\":\"high-risk\",\"score\":76,\"reasoningSummary\":\"Contains 3 risk signals and 0 safeguard signals.\"},{\"id\":\"CPB-060\",\"articles\":[\"04\"],\"disposition\":\"high-risk\",\"score\":72,\"reasoningSummary\":\"Contains 4 risk signals and 0 safeguard signals.\"}]}",
+              "role": "assistant",
+              "tool_calls": null
+            }
+          }
+        ],
+        "created": 1785272406,
+        "id": "4afc0780aade45a2b1fa1ca9cccd4337",
+        "model": "mistral-small-2503",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 484,
+          "prompt_tokens": 1115,
+          "total_tokens": 1599
+        }
+      },
+      "error": null
+    },
+    {
+      "kind": "inference",
+      "batch": 7,
+      "ids": [
+        "CPB-061",
+        "CPB-062",
+        "CPB-063",
+        "CPB-064",
+        "CPB-065",
+        "CPB-066",
+        "CPB-067",
+        "CPB-068",
+        "CPB-069",
+        "CPB-070"
+      ],
+      "attempt": 1,
+      "requestedAt": "2026-07-28T21:00:10.891Z",
+      "request": {
+        "model": "mistral-ai/mistral-small-2503",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys."
+          },
+          {
+            "role": "user",
+            "content": "Classify these cases now under the complete system rules.\nReturn only a JSON object with a predictions array. Do not summarize the cases.\nEvery prediction requires id, articles, disposition, score, and reasoningSummary.\n\nINPUT CASES:\n[{\"id\":\"CPB-061\",\"proposal\":\"The proposal explicitly includes human appeal and human review.\"},{\"id\":\"CPB-062\",\"proposal\":\"The proposal includes human appeal, but also punish.\"},{\"id\":\"CPB-063\",\"proposal\":\"The proposal includes human appeal, but also punish and threaten.\"},{\"id\":\"CPB-064\",\"proposal\":\"The proposal schedules a neighborhood design workshop and publishes the date.\"},{\"id\":\"CPB-065\",\"proposal\":\"The proposed rule explicitly includes secret rule.\"},{\"id\":\"CPB-066\",\"proposal\":\"The proposed rule explicitly includes secret rule and hidden moderator.\"},{\"id\":\"CPB-067\",\"proposal\":\"The proposed rule explicitly includes secret rule, hidden moderator, and opaque score.\"},{\"id\":\"CPB-068\",\"proposal\":\"The proposed rule explicitly includes secret rule, hidden moderator, opaque score, and private governance.\"},{\"id\":\"CPB-069\",\"proposal\":\"The proposal explicitly includes public audit log and published rule.\"},{\"id\":\"CPB-070\",\"proposal\":\"The proposal includes public audit log, but also secret rule.\"}]\n\nOUTPUT CONTRACT:\n{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}]}"
+          }
+        ],
+        "temperature": 0,
+        "max_tokens": 3500,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"predictions\":[{\"id\":\"CPB-061\",\"articles\":[\"04\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Two safeguards, no risks.\"},{\"id\":\"CPB-062\",\"articles\":[\"04\"],\"disposition\":\"needs-safeguards\",\"score\":88,\"reasoningSummary\":\"Two safeguards, one risk.\"},{\"id\":\"CPB-063\",\"articles\":[\"04\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"Two safeguards, two risks.\"},{\"id\":\"CPB-064\",\"articles\":[],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"No signals.\"},{\"id\":\"CPB-065\",\"articles\":[\"05\"],\"disposition\":\"high-risk\",\"score\":88,\"reasoningSummary\":\"No safeguards, one risk.\"},{\"id\":\"CPB-066\",\"articles\":[\"05\"],\"disposition\":\"high-risk\",\"score\":76,\"reasoningSummary\":\"No safeguards, two risks.\"},{\"id\":\"CPB-067\",\"articles\":[\"05\"],\"disposition\":\"high-risk\",\"score\":64,\"reasoningSummary\":\"No safeguards, three risks.\"},{\"id\":\"CPB-068\",\"articles\":[\"05\"],\"disposition\":\"high-risk\",\"score\":52,\"reasoningSummary\":\"No safeguards, four risks.\"},{\"id\":\"CPB-069\",\"articles\":[\"05\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Two safeguards, no risks.\"},{\"id\":\"CPB-070\",\"articles\":[\"05\"],\"disposition\":\"needs-safeguards\",\"score\":88,\"reasoningSummary\":\"One safeguard, one risk.\"}]}",
+              "role": "assistant",
+              "tool_calls": null
+            }
+          }
+        ],
+        "created": 1785272411,
+        "id": "1fd45dddf8e34f2291170be23c396634",
+        "model": "mistral-small-2503",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 422,
+          "prompt_tokens": 1113,
+          "total_tokens": 1535
+        }
+      },
+      "error": null
+    },
+    {
+      "kind": "inference",
+      "batch": 8,
+      "ids": [
+        "CPB-071",
+        "CPB-072",
+        "CPB-073",
+        "CPB-074",
+        "CPB-075",
+        "CPB-076",
+        "CPB-077",
+        "CPB-078",
+        "CPB-079",
+        "CPB-080"
+      ],
+      "attempt": 1,
+      "requestedAt": "2026-07-28T21:00:15.391Z",
+      "request": {
+        "model": "mistral-ai/mistral-small-2503",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys."
+          },
+          {
+            "role": "user",
+            "content": "Classify these cases now under the complete system rules.\nReturn only a JSON object with a predictions array. Do not summarize the cases.\nEvery prediction requires id, articles, disposition, score, and reasoningSummary.\n\nINPUT CASES:\n[{\"id\":\"CPB-071\",\"proposal\":\"The proposal includes public audit log, but also secret rule and hidden moderator.\"},{\"id\":\"CPB-072\",\"proposal\":\"The proposal schedules a neighborhood design workshop and publishes the date.\"},{\"id\":\"CPB-073\",\"proposal\":\"The proposed rule explicitly includes unverifiable.\"},{\"id\":\"CPB-074\",\"proposal\":\"The proposed rule explicitly includes unverifiable and proprietary score.\"},{\"id\":\"CPB-075\",\"proposal\":\"The proposed rule explicitly includes unverifiable, proprietary score, and trust us.\"},{\"id\":\"CPB-076\",\"proposal\":\"The proposed rule explicitly includes unverifiable, proprietary score, trust us, and unpublished test.\"},{\"id\":\"CPB-077\",\"proposal\":\"The proposal explicitly includes open source and public benchmark.\"},{\"id\":\"CPB-078\",\"proposal\":\"The proposal includes open source, but also unverifiable.\"},{\"id\":\"CPB-079\",\"proposal\":\"The proposal includes open source, but also unverifiable and proprietary score.\"},{\"id\":\"CPB-080\",\"proposal\":\"The proposal schedules a neighborhood design workshop and publishes the date.\"}]\n\nOUTPUT CONTRACT:\n{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}]}"
+          }
+        ],
+        "temperature": 0,
+        "max_tokens": 3500,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"predictions\":[{\"id\":\"CPB-071\",\"articles\":[\"05\"],\"disposition\":\"needs-safeguards\",\"score\":84,\"reasoningSummary\":\"1 risk signal, 1 safeguard signal\"},{\"id\":\"CPB-072\",\"articles\":[],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"no risk or safeguard signals\"},{\"id\":\"CPB-073\",\"articles\":[\"06\"],\"disposition\":\"needs-safeguards\",\"score\":88,\"reasoningSummary\":\"1 risk signal, 0 safeguard signals\"},{\"id\":\"CPB-074\",\"articles\":[\"06\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"2 risk signals, 0 safeguard signals\"},{\"id\":\"CPB-075\",\"articles\":[\"06\"],\"disposition\":\"needs-safeguards\",\"score\":64,\"reasoningSummary\":\"3 risk signals, 0 safeguard signals\"},{\"id\":\"CPB-076\",\"articles\":[\"06\"],\"disposition\":\"high-risk\",\"score\":52,\"reasoningSummary\":\"4 risk signals, 0 safeguard signals\"},{\"id\":\"CPB-077\",\"articles\":[\"06\"],\"disposition\":\"guarded\",\"score\":100,\"reasoningSummary\":\"0 risk signals, 2 safeguard signals\"},{\"id\":\"CPB-078\",\"articles\":[\"06\"],\"disposition\":\"needs-safeguards\",\"score\":88,\"reasoningSummary\":\"1 risk signal, 1 safeguard signal\"},{\"id\":\"CPB-079\",\"articles\":[\"06\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"2 risk signals, 1 safeguard signal\"},{\"id\":\"CPB-080\",\"articles\":[],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"no risk or safeguard signals\"}]}",
+              "role": "assistant",
+              "tool_calls": null
+            }
+          }
+        ],
+        "created": 1785272416,
+        "id": "da826390edd54355a80511a4f6811e9d",
+        "model": "mistral-small-2503",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 446,
+          "prompt_tokens": 1118,
+          "total_tokens": 1564
+        }
+      },
+      "error": null
+    },
+    {
+      "kind": "inference",
+      "batch": 9,
+      "ids": [
+        "CPB-081",
+        "CPB-082",
+        "CPB-083",
+        "CPB-084",
+        "CPB-085",
+        "CPB-086",
+        "CPB-087",
+        "CPB-088",
+        "CPB-089",
+        "CPB-090"
+      ],
+      "attempt": 1,
+      "requestedAt": "2026-07-28T21:00:19.891Z",
+      "request": {
+        "model": "mistral-ai/mistral-small-2503",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys."
+          },
+          {
+            "role": "user",
+            "content": "Classify these cases now under the complete system rules.\nReturn only a JSON object with a predictions array. Do not summarize the cases.\nEvery prediction requires id, articles, disposition, score, and reasoningSummary.\n\nINPUT CASES:\n[{\"id\":\"CPB-081\",\"proposal\":\"The proposed rule explicitly includes cannot leave.\"},{\"id\":\"CPB-082\",\"proposal\":\"The proposed rule explicitly includes cannot leave and lock in.\"},{\"id\":\"CPB-083\",\"proposal\":\"The proposed rule explicitly includes cannot leave, lock in, and non-cancelable.\"},{\"id\":\"CPB-084\",\"proposal\":\"The proposed rule explicitly includes cannot leave, lock in, non-cancelable, and retain forever.\"},{\"id\":\"CPB-085\",\"proposal\":\"The proposal explicitly includes right to leave and data export.\"},{\"id\":\"CPB-086\",\"proposal\":\"The proposal includes right to leave, but also cannot leave.\"},{\"id\":\"CPB-087\",\"proposal\":\"The proposal includes right to leave, but also cannot leave and lock in.\"},{\"id\":\"CPB-088\",\"proposal\":\"The proposal schedules a neighborhood design workshop and publishes the date.\"},{\"id\":\"CPB-089\",\"proposal\":\"The proposed rule explicitly includes change rules without notice.\"},{\"id\":\"CPB-090\",\"proposal\":\"The proposed rule explicitly includes change rules without notice and retroactive rule.\"}]\n\nOUTPUT CONTRACT:\n{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}]}"
+          }
+        ],
+        "temperature": 0,
+        "max_tokens": 3500,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"predictions\":[{\"id\":\"CPB-081\",\"articles\":[\"07\"],\"disposition\":\"high-risk\",\"score\":44,\"reasoningSummary\":\"Risk signals: cannot leave (1).\"},{\"id\":\"CPB-082\",\"articles\":[\"07\"],\"disposition\":\"high-risk\",\"score\":32,\"reasoningSummary\":\"Risk signals: cannot leave, lock in (2).\"},{\"id\":\"CPB-083\",\"articles\":[\"07\"],\"disposition\":\"high-risk\",\"score\":20,\"reasoningSummary\":\"Risk signals: cannot leave, lock in, non-cancelable (3).\"},{\"id\":\"CPB-084\",\"articles\":[\"07\"],\"disposition\":\"high-risk\",\"score\":8,\"reasoningSummary\":\"Risk signals: cannot leave, lock in, non-cancelable, retain forever (4).\"},{\"id\":\"CPB-085\",\"articles\":[\"07\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Safeguards: right to leave, data export (2).\"},{\"id\":\"CPB-086\",\"articles\":[\"07\"],\"disposition\":\"high-risk\",\"score\":44,\"reasoningSummary\":\"Risk signals: cannot leave (1). Safeguards: right to leave (1).\"},{\"id\":\"CPB-087\",\"articles\":[\"07\"],\"disposition\":\"high-risk\",\"score\":32,\"reasoningSummary\":\"Risk signals: cannot leave, lock in (2). Safeguards: right to leave (1).\"},{\"id\":\"CPB-088\",\"articles\":[],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"No risk or safeguard signals.\"},{\"id\":\"CPB-089\",\"articles\":[\"08\"],\"disposition\":\"high-risk\",\"score\":88,\"reasoningSummary\":\"Risk signals: change rules without notice (1).\"},{\"id\":\"CPB-090\",\"articles\":[\"08\"],\"disposition\":\"high-risk\",\"score\":76,\"reasoningSummary\":\"Risk signals: change rules without notice, retroactive rule (2).\"}]}",
+              "role": "assistant",
+              "tool_calls": null
+            }
+          }
+        ],
+        "created": 1785272421,
+        "id": "7f3b242a7dfa442397cc3b4a9dc2c966",
+        "model": "mistral-small-2503",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 477,
+          "prompt_tokens": 1121,
+          "total_tokens": 1598
+        }
+      },
+      "error": null
+    },
+    {
+      "kind": "inference",
+      "batch": 10,
+      "ids": [
+        "CPB-091",
+        "CPB-092",
+        "CPB-093",
+        "CPB-094",
+        "CPB-095",
+        "CPB-096",
+        "CPB-097",
+        "CPB-098",
+        "CPB-099",
+        "CPB-100"
+      ],
+      "attempt": 1,
+      "requestedAt": "2026-07-28T21:00:27.718Z",
+      "request": {
+        "model": "mistral-ai/mistral-small-2503",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys."
+          },
+          {
+            "role": "user",
+            "content": "Classify these cases now under the complete system rules.\nReturn only a JSON object with a predictions array. Do not summarize the cases.\nEvery prediction requires id, articles, disposition, score, and reasoningSummary.\n\nINPUT CASES:\n[{\"id\":\"CPB-091\",\"proposal\":\"The proposed rule explicitly includes change rules without notice, retroactive rule, and unilateral change.\"},{\"id\":\"CPB-092\",\"proposal\":\"The proposed rule explicitly includes change rules without notice, retroactive rule, unilateral change, and permanent rule.\"},{\"id\":\"CPB-093\",\"proposal\":\"The proposal explicitly includes public proposal and review period.\"},{\"id\":\"CPB-094\",\"proposal\":\"The proposal includes public proposal, but also change rules without notice.\"},{\"id\":\"CPB-095\",\"proposal\":\"The proposal includes public proposal, but also change rules without notice and retroactive rule.\"},{\"id\":\"CPB-096\",\"proposal\":\"The proposal schedules a neighborhood design workshop and publishes the date.\"},{\"id\":\"CPB-097\",\"proposal\":\"Make the system mandatory and collect biometric records.\"},{\"id\":\"CPB-098\",\"proposal\":\"Publish a fabricated result under a secret rule.\"},{\"id\":\"CPB-099\",\"proposal\":\"Use an opaque score to punish people, with a human appeal and explain decision outcomes.\"},{\"id\":\"CPB-100\",\"proposal\":\"Make participation mandatory, publish a deepfake, collect biometric data, punish dissenters, and apply a secret rule.\"}]\n\nOUTPUT CONTRACT:\n{\"predictions\":[{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}]}"
+          }
+        ],
+        "temperature": 0,
+        "max_tokens": 3500,
+        "response_format": {
+          "type": "json_object"
+        }
+      },
+      "response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "message": {
+              "content": "{\"predictions\":[{\"id\":\"CPB-091\",\"articles\":[\"08\"],\"disposition\":\"high-risk\",\"score\":28,\"reasoningSummary\":\"Three risk signals: change rules without notice, retroactive rule, and unilateral change.\"},{\"id\":\"CPB-092\",\"articles\":[\"08\"],\"disposition\":\"high-risk\",\"score\":16,\"reasoningSummary\":\"Four risk signals: change rules without notice, retroactive rule, unilateral change, and permanent rule.\"},{\"id\":\"CPB-093\",\"articles\":[\"08\"],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"Two safeguard signals: public proposal and review period.\"},{\"id\":\"CPB-094\",\"articles\":[\"08\"],\"disposition\":\"high-risk\",\"score\":40,\"reasoningSummary\":\"One safeguard signal: public proposal. One risk signal: change rules without notice.\"},{\"id\":\"CPB-095\",\"articles\":[\"08\"],\"disposition\":\"high-risk\",\"score\":28,\"reasoningSummary\":\"One safeguard signal: public proposal. Two risk signals: change rules without notice and retroactive rule.\"},{\"id\":\"CPB-096\",\"articles\":[],\"disposition\":\"no-explicit-conflict\",\"score\":100,\"reasoningSummary\":\"No risk or safeguard signals.\"},{\"id\":\"CPB-097\",\"articles\":[\"01\",\"03\"],\"disposition\":\"high-risk\",\"score\":20,\"reasoningSummary\":\"Two risk signals: mandatory and biometric.\"},{\"id\":\"CPB-098\",\"articles\":[\"02\",\"05\"],\"disposition\":\"high-risk\",\"score\":20,\"reasoningSummary\":\"Three risk signals: fabricated, secret rule, and no safeguard signals.\"},{\"id\":\"CPB-099\",\"articles\":[\"04\",\"05\"],\"disposition\":\"guarded\",\"score\":52,\"reasoningSummary\":\"Two risk signals: punish and opaque score. Two safeguard signals: human appeal and explain decision.\"},{\"id\":\"CPB-100\",\"articles\":[\"01\",\"02\",\"03\",\"04\",\"05\"],\"disposition\":\"high-risk\",\"score\":-12,\"reasoningSummary\":\"Five risk signals: mandatory, deepfake, biometric, punish, and secret rule. No safeguard signals.\"}]}",
+              "role": "assistant",
+              "tool_calls": null
+            }
+          }
+        ],
+        "created": 1785272427,
+        "id": "e10389f8546143c8ab925949be9b0edd",
+        "model": "mistral-small-2503",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 522,
+          "prompt_tokens": 1142,
+          "total_tokens": 1664
+        }
+      },
+      "error": null
+    }
+  ]
+}

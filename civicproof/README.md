@@ -27,6 +27,17 @@ External models receive no score until the exact system identity, prompts,
 parameters, raw outputs, retries, tools, exclusions, and benchmark hash are
 available at a stable public evidence URL.
 
+## First external open-model result
+
+Mistral Small 3.1 completed all 100 cases through a public GitHub Actions run.
+The strict score was 34% exact replay, 99% article-set accuracy, 55% disposition
+accuracy, and 14.92 score MAE. The complete system prompt, parameters, raw
+responses, prediction file, per-case report, and file hashes are published in
+[`results/mistral-small-2503-2026-07-28`](./results/mistral-small-2503-2026-07-28).
+
+This was executed by CivicProof project-maintainer CI. It is external-model
+evidence, not independent third-party validation.
+
 ## Run it
 
 For a complete external run, copy the template to `run.json`, fill all 100

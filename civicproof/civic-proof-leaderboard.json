@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "CivicProof Leaderboard",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "published": "2026-07-28",
   "canonicalUrl": "https://marco-is-my-friend.marcohergee813.chatgpt.site/nation/leaderboard",
   "benchmark": {
@@ -38,6 +38,34 @@
         "report": "/nation/leaderboard/reference"
       },
       "boundary": "A reference engine reproducing its own published rules is a consistency baseline, not evidence of general intelligence, legal competence, ethical judgment, or superiority over an external model."
+    },
+    {
+      "rank": 2,
+      "runId": "github-models-mistral-ai-mistral-small-2503-30398743931",
+      "system": "mistral-ai/mistral-small-2503",
+      "provider": "GitHub Models",
+      "systemType": "external open-weight language model",
+      "verificationClass": "project-maintainer CI run; not independent third-party evaluation",
+      "modelVersion": "1",
+      "evaluatedAt": "2026-07-28T21:00:31.351Z",
+      "caseCount": 100,
+      "exactReplay": 34,
+      "articleSetAccuracy": 99,
+      "dispositionAccuracy": 55,
+      "scoreMae": 14.92,
+      "retries": 0,
+      "exclusions": 0,
+      "humanReview": "none",
+      "evidence": {
+        "workflowRun": "https://github.com/MARCCHERGGI/indie-metrics-site/actions/runs/30398743931",
+        "directory": "https://github.com/MARCCHERGGI/indie-metrics-site/tree/main/civicproof/results/mistral-small-2503-2026-07-28",
+        "run": "https://raw.githubusercontent.com/MARCCHERGGI/indie-metrics-site/main/civicproof/results/mistral-small-2503-2026-07-28/run.json",
+        "report": "https://raw.githubusercontent.com/MARCCHERGGI/indie-metrics-site/main/civicproof/results/mistral-small-2503-2026-07-28/report.json",
+        "rawResponses": "https://raw.githubusercontent.com/MARCCHERGGI/indie-metrics-site/main/civicproof/results/mistral-small-2503-2026-07-28/raw-responses.json",
+        "modelCatalog": "https://github.com/marketplace/models/azureml-mistral/mistral-small-2503"
+      },
+      "normalization": "One finite score outside 0 through 100 was clamped to the nearest schema boundary; the raw value remains public.",
+      "boundary": "Public open-book regression result executed by project-maintainer CI. It is not independent third-party validation and does not establish legal competence, ethical authority, safety, or general intelligence."
     }
   ],
   "awaitingIndependentRuns": [
@@ -58,7 +86,7 @@
     },
     {
       "system": "Open-source model",
-      "status": "not-yet-submitted",
+      "status": "maintainer-run-published; independent-replication-not-yet-submitted",
       "score": null
     }
   ],
@@ -69,5 +97,5 @@
     "Disclose human review, retries, tool use, and excluded cases.",
     "Consent to public verification before a score is listed."
   ],
-  "boundary": "Missing runs are displayed as unverified, never as zero. Placement is based only on reproducible submitted evidence. No provider endorsement is implied."
+  "boundary": "Missing independent runs are displayed as unverified, never as zero. The Mistral row is reproducible external-model evidence executed by project-maintainer CI, not independent third-party validation. No provider endorsement is implied."
 }
