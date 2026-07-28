@@ -1,0 +1,55 @@
+{
+  "name": "Civic Proof Evaluation Kit",
+  "version": "2.1.0",
+  "released": "2026-07-28",
+  "creator": "Marco Hergi",
+  "canonicalUrl": "https://marco-is-my-friend.marcohergee813.chatgpt.site/nation/leaderboard",
+  "artifacts": {
+    "completeArchive": "/civic-proof-evaluation-kit-v2.1.0.zip",
+    "benchmarkJson": "/civic-proof-bench.json",
+    "benchmarkCsv": "/civic-proof-bench.csv",
+    "benchmarkJsonl": "/civic-proof-bench.jsonl",
+    "leaderboard": "/civic-proof-leaderboard.json",
+    "localRunner": "/nation/leaderboard/run",
+    "runTemplate": "/civic-proof-run-template.json",
+    "runSchema": "/civic-proof-run-schema.json",
+    "reportSchema": "/civic-proof-report-schema.json",
+    "cliScorer": "/civic-proof-score.mjs",
+    "githubReadme": "/civic-proof-github-readme.md",
+    "contributing": "/civic-proof-contributing.md",
+    "packageManifest": "/civic-proof-package.json",
+    "releaseVerifier": "/civic-proof-verify-release.mjs",
+    "githubWorkflow": "/civic-proof-github-workflow.yml",
+    "datasetCard": "/civic-proof-dataset-card.md",
+    "inspectAiTask": "/civic-proof-inspect.py",
+    "pythonClient": "/civic-proof-python.py",
+    "typescriptClient": "/civic-proof-typescript.ts",
+    "citation": "/CITATION.cff",
+    "license": "/LICENSE-CC0.txt",
+    "modelCard": "/civic-proof-model-card.json",
+    "openapi": "/openapi.json",
+    "mcp": "/api/mcp"
+  },
+  "integrity": {
+    "caseCount": 100,
+    "benchmarkSha256": "8a8a9b1cdbd1596cc93cff186faa9d4181d8017a777a7462785a03f236cf71d6",
+    "runSchemaVersion": "CIVIC-PROOF-RUN-1.0",
+    "reportSchemaVersion": "CIVIC-PROOF-REPORT-1.0",
+    "completeRunsRequireEveryCase": true,
+    "rawOutputsRequired": true,
+    "excludedCasesAllowed": false
+  },
+  "externalPublication": {
+    "github": {
+      "status": "published",
+      "repository": "MARCCHERGGI/indie-metrics-site",
+      "path": "civicproof",
+      "url": "https://github.com/MARCCHERGGI/indie-metrics-site/tree/main/civicproof"
+    },
+    "huggingFace": "prepared-not-published",
+    "inspectAi": "compatible-json-aware-artifact-published-on-canonical-site",
+    "githubActions": "workflow-source-prepared-for-publication"
+  },
+  "evaluationClass": "public-open-book-regression",
+  "boundary": "Gold labels are public and contamination is possible. Prepared external packages are not represented as externally published until the respective platform confirms publication. A score is not proof of legal competence, ethical authority, safety, governance legitimacy, or general intelligence."
+}
