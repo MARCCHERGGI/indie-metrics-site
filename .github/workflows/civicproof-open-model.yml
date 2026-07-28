@@ -12,7 +12,7 @@ on:
       model:
         description: GitHub Models catalog ID
         required: true
-        default: microsoft/phi-4-mini-instruct
+        default: mistral-ai/mistral-small-2503
 
 permissions:
   contents: read
@@ -28,7 +28,7 @@ jobs:
     timeout-minutes: 20
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      CIVICPROOF_MODEL: ${{ inputs.model || 'microsoft/phi-4-mini-instruct' }}
+      CIVICPROOF_MODEL: ${{ inputs.model || 'mistral-ai/mistral-small-2503' }}
       CIVICPROOF_BATCH_SIZE: "10"
       CIVICPROOF_MAX_ATTEMPTS: "2"
       CIVICPROOF_DELAY_MS: "4500"

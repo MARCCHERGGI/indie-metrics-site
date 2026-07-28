@@ -13,7 +13,7 @@ const outputDirectory = resolve(
   process.env.CIVICPROOF_OUTPUT_DIR ?? "civicproof/results/github-models",
 );
 const model =
-  process.env.CIVICPROOF_MODEL ?? "microsoft/phi-4-mini-instruct";
+  process.env.CIVICPROOF_MODEL ?? "mistral-ai/mistral-small-2503";
 const endpoint = "https://models.github.ai/inference/chat/completions";
 const catalogEndpoint = "https://models.github.ai/catalog/models";
 const batchSize = Number(process.env.CIVICPROOF_BATCH_SIZE ?? 10);
@@ -226,11 +226,15 @@ try {
 const predictions = [];
 for (let index = 0; index < benchmark.cases.length; index += batchSize) {
   const cases = benchmark.cases.slice(index, index + batchSize);
-  const userPayload = {
-    benchmark: benchmark.name,
-    benchmarkVersion: benchmark.version,
-    cases: cases.map(({ id, proposal }) => ({ id, proposal })),
-  };
+  const userPayload = `Classify these cases now under the complete system rules.
+Return only a JSON object with a predictions array. Do not summarize the cases.
+Every prediction requires id, articles, disposition, score, and reasoningSummary.
+
+INPUT CASES:
+${JSON.stringify(cases.map(({ id, proposal }) => ({ id, proposal })))}
+
+OUTPUT CONTRACT:
+{"predictions":[{"id":"CPB-001","articles":["01"],"disposition":"needs-safeguards","score":76,"reasoningSummary":"short factual summary"}]}`;
   let completed = false;
   let latestError = null;
 
@@ -242,10 +246,11 @@ for (let index = 0; index < benchmark.cases.length; index += batchSize) {
       model,
       messages: [
         { role: "system", content: systemPrompt },
-        { role: "user", content: JSON.stringify(userPayload) },
+        { role: "user", content: userPayload },
       ],
       temperature: 0,
       max_tokens: maxOutputTokens,
+      response_format: { type: "json_object" },
     };
     const trace = {
       kind: "inference",
