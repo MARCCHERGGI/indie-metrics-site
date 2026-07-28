@@ -9,7 +9,10 @@ across eight published principles and cross-article cases.
 - `civic-proof-bench.json`, `.csv`, and `.jsonl`
 - an evidence-gated public leaderboard record
 - a reproducible reference consistency report
-- an Inspect AI task
+- a browser-local scorer and zero-dependency Node.js scorer
+- strict run and report schemas
+- a JSON-aware Inspect AI task with four published metrics
+- a release verifier and read-only GitHub Actions workflow
 - zero-auth Python and TypeScript clients
 - a dataset card, model card, citation record, and CC0 dedication
 
@@ -26,13 +29,24 @@ available at a stable public evidence URL.
 
 ## Run it
 
-Install Inspect AI and run:
+For a complete external run, copy the template to `run.json`, fill all 100
+predictions, then run:
 
 ```bash
-inspect eval civic-proof-inspect.py
+node civic-proof-score.mjs civic-proof-bench.json run.json report.json
 ```
 
-Or call the public deterministic API:
+The scorer rejects a mismatched benchmark hash, incomplete metadata, exclusions,
+duplicate or unknown IDs, missing predictions, invalid fields, and missing raw
+outputs.
+
+To run a provider model through Inspect AI:
+
+```bash
+inspect eval civic-proof-inspect.py --model <provider/model>
+```
+
+Or call the public deterministic reference API:
 
 ```bash
 curl -X POST \
@@ -44,9 +58,16 @@ curl -X POST \
 ## Public evidence
 
 - Leaderboard: https://marco-is-my-friend.marcohergee813.chatgpt.site/nation/leaderboard
+- Browser-local scorer: https://marco-is-my-friend.marcohergee813.chatgpt.site/nation/leaderboard/run
 - Reference report: https://marco-is-my-friend.marcohergee813.chatgpt.site/nation/leaderboard/reference
 - Contribution protocol: https://marco-is-my-friend.marcohergee813.chatgpt.site/nation/leaderboard#submit-evidence
-- Complete ZIP: https://marco-is-my-friend.marcohergee813.chatgpt.site/civic-proof-evaluation-kit-v2.0.0.zip
+- Complete ZIP: https://marco-is-my-friend.marcohergee813.chatgpt.site/civic-proof-evaluation-kit-v2.1.0.zip
+
+## Evaluation boundary
+
+CivicProofBench 100 is a public open-book regression benchmark. Gold labels are
+public and contamination is possible. A score is not proof of legal competence,
+ethical authority, safety, governance legitimacy, or general intelligence.
 
 ## License
 
