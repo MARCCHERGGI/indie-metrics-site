@@ -1,0 +1,15 @@
+CivicProofBench 100 Dataset Dedication
+
+To the extent possible under law, Marco Hergi has waived all copyright and
+related or neighboring rights to CivicProofBench 100.
+
+This work is published from the United States under the Creative Commons
+CC0 1.0 Universal Public Domain Dedication:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+The software examples and clients in the evaluation kit are provided under
+the MIT License unless a file states otherwise.
+
+THE WORK IS PROVIDED WITHOUT WARRANTY OF ANY KIND. CivicProofBench is an
+evaluation artifact, not legal advice, ethical approval, safety certification,
+or a substitute for affected-community review.
