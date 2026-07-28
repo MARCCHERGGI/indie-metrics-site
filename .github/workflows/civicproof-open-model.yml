@@ -1,0 +1,80 @@
+name: Run CivicProof on an open model
+
+on:
+  push:
+    paths:
+      - "civicproof/run-github-models.mjs"
+      - "civicproof/civic-proof-bench.json"
+      - "civicproof/civic-proof-score.mjs"
+      - ".github/workflows/civicproof-open-model.yml"
+  workflow_dispatch:
+    inputs:
+      model:
+        description: GitHub Models catalog ID
+        required: true
+        default: mistral-ai/mistral-small-2503
+
+permissions:
+  contents: read
+  models: read
+
+concurrency:
+  group: civicproof-open-model-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CIVICPROOF_MODEL: ${{ inputs.model || 'mistral-ai/mistral-small-2503' }}
+      CIVICPROOF_BATCH_SIZE: "10"
+      CIVICPROOF_MAX_ATTEMPTS: "2"
+      CIVICPROOF_DELAY_MS: "4500"
+      CIVICPROOF_MAX_OUTPUT_TOKENS: "3500"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Call the pinned open model
+        run: node civicproof/run-github-models.mjs
+
+      - name: Score the complete run
+        run: |
+          node civicproof/civic-proof-score.mjs \
+            civicproof/civic-proof-bench.json \
+            civicproof/results/github-models/run.json \
+            civicproof/results/github-models/report.json
+
+      - name: Verify evidence completeness
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile } from "node:fs/promises";
+          const run = JSON.parse(
+            await readFile("civicproof/results/github-models/run.json", "utf8"),
+          );
+          const report = JSON.parse(
+            await readFile("civicproof/results/github-models/report.json", "utf8"),
+          );
+          if (run.predictions.length !== 100) throw new Error("Run is incomplete.");
+          if (!report.integrity.rawOutputsPresent) {
+            throw new Error("One or more raw outputs are missing.");
+          }
+          if (!report.integrity.benchmarkHashMatch) {
+            throw new Error("Benchmark hash mismatch.");
+          }
+          console.log(JSON.stringify(report.metrics, null, 2));
+          NODE
+
+      - name: Upload immutable run evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: civicproof-open-model-${{ github.run_id }}
+          path: civicproof/results/github-models/
+          if-no-files-found: error
+          retention-days: 90

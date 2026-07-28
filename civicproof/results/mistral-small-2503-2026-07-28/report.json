@@ -1,0 +1,2139 @@
+{
+  "schemaVersion": "CIVIC-PROOF-REPORT-1.0",
+  "generatedAt": "2026-07-28T21:00:31.412Z",
+  "benchmark": {
+    "name": "CivicProofBench 100",
+    "version": "2.0.0",
+    "sha256": "8a8a9b1cdbd1596cc93cff186faa9d4181d8017a777a7462785a03f236cf71d6",
+    "caseCount": 100,
+    "evaluationType": "public-open-book-regression"
+  },
+  "run": {
+    "runId": "github-models-mistral-ai-mistral-small-2503-30398743931",
+    "system": "mistral-ai/mistral-small-2503",
+    "provider": "GitHub Models",
+    "modelVersion": "1",
+    "modelCatalogUrl": "https://github.com/marketplace/models/azureml-mistral/mistral-small-2503",
+    "evaluatedAt": "2026-07-28T21:00:31.351Z",
+    "benchmark": "CivicProofBench 100",
+    "benchmarkVersion": "2.0.0",
+    "benchmarkSha256": "8a8a9b1cdbd1596cc93cff186faa9d4181d8017a777a7462785a03f236cf71d6",
+    "systemPrompt": "You are running CivicProofBench 100 as a strict public open-book regression test.\nClassify each proposal using CIVIC-PROOF-1.0. Match phrases case-insensitively.\n\nArticle 01, Human agency\nRisk signals: mandatory; without choice; dark pattern; manipulate; addictive; forced; secretly optimize; exploit attention.\nSafeguards: voluntary; user choice; human override; opt in; manual approval; meaningful choice.\n\nArticle 02, Truth before mythology\nRisk signals: deepfake; undisclosed synthetic; fabricated; false claim; no source; hide uncertainty; impersonate.\nSafeguards: cite source; public source; disclosure; label synthetic; state uncertainty; correction log; provenance.\n\nArticle 03, Consent and privacy\nRisk signals: personal data; biometric; face scan; precise location; private message; surveillance; without consent; government identifier; no opt out.\nSafeguards: informed consent; data minimization; delete data; opt out; encrypted; retention limit; anonymized.\n\nArticle 04, No autonomous coercion\nRisk signals: punish; threaten; blacklist; retaliation; deceive; ban automatically; deny access; forced compliance.\nSafeguards: human appeal; human review; due process; non-retaliation; advance notice; proportionate.\n\nArticle 05, Transparent power\nRisk signals: secret rule; hidden moderator; undisclosed conflict; opaque score; unexplained decision; private governance.\nSafeguards: public audit log; published rule; conflict disclosure; explain decision; transparent vote; appeal record.\n\nArticle 06, Reproducible contribution\nRisk signals: unverifiable; proprietary score; trust us; no methodology; unpublished test.\nSafeguards: open source; public benchmark; reproducible; test vector; methodology; versioned dataset.\n\nArticle 07, The right to leave\nRisk signals: cannot leave; lock in; non-cancelable; retain forever; prevent export; revocation forbidden.\nSafeguards: right to leave; data export; account deletion; revoke consent; cancel anytime; portable.\n\nArticle 08, Amendment by evidence\nRisk signals: change rules without notice; retroactive rule; unilateral change; permanent rule; silent policy update.\nSafeguards: public proposal; review period; versioned change; recorded vote; effective date; amendment archive.\n\nFor every proposal:\n1. Count every exact risk signal and every exact safeguard signal across all articles.\n2. Ignore a safeguard phrase when it is negated by no, not, without, lacks, lacking, deny, denied, or prevent within the preceding three words.\n3. Include an article when it contains at least one risk or valid safeguard signal.\n4. Compute score = clamp(100 - 12 * totalRiskSignals + 4 * totalSafeguardSignals, 0, 100).\n5. Disposition is no-explicit-conflict when risk count is 0; high-risk when risk count is at least 5 or score is below 55; guarded when safeguard count is at least risk count; otherwise needs-safeguards.\n\nReturn only one JSON object with a \"predictions\" array. Return exactly one record for every supplied ID and no other records. Each record must contain:\n{\"id\":\"CPB-001\",\"articles\":[\"01\"],\"disposition\":\"needs-safeguards\",\"score\":76,\"reasoningSummary\":\"short factual summary\"}\nDo not include Markdown, commentary, expected answers, or extra keys.",
+    "parameters": {
+      "temperature": 0,
+      "topP": null,
+      "seed": null,
+      "maxOutputTokens": 3500,
+      "batchSize": 10,
+      "maximumAttempts": 2,
+      "minimumDelayMs": 4500
+    },
+    "tools": [],
+    "retries": 0,
+    "exclusions": [],
+    "humanReview": "none; generated and scored automatically by the linked public GitHub Actions run",
+    "evidenceUrl": "https://github.com/MARCCHERGGI/indie-metrics-site/actions/runs/30398743931",
+    "notes": "External open-model inference executed by CivicProof project-maintainer CI. This is reproducible public evidence, not an independent third-party evaluation.",
+    "normalization": "Finite numeric model scores outside 0 through 100 are clamped to the nearest schema boundary. Raw model output is preserved unchanged for audit."
+  },
+  "integrity": {
+    "submittedPredictions": 100,
+    "uniquePredictionIds": 100,
+    "excludedCases": 0,
+    "rawOutputsPresent": true,
+    "benchmarkHashMatch": true
+  },
+  "metrics": {
+    "cases": 100,
+    "exactReplay": 34,
+    "articleSetAccuracy": 99,
+    "dispositionAccuracy": 55,
+    "scoreMae": 14.92
+  },
+  "caseResults": [
+    {
+      "id": "CPB-001",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 48,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "high-risk",
+        "score": 28
+      }
+    },
+    {
+      "id": "CPB-002",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 40,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "high-risk",
+        "score": 24
+      }
+    },
+    {
+      "id": "CPB-003",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 12,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "guarded",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-004",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 8,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "guarded",
+        "score": 92
+      }
+    },
+    {
+      "id": "CPB-005",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 40,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "high-risk",
+        "score": 24
+      }
+    },
+    {
+      "id": "CPB-006",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 40,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "high-risk",
+        "score": 24
+      }
+    },
+    {
+      "id": "CPB-007",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 12,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "guarded",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-008",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 12,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "guarded",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-009",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 40,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "high-risk",
+        "score": 24
+      }
+    },
+    {
+      "id": "CPB-010",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 28,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "high-risk",
+        "score": 24
+      }
+    },
+    {
+      "id": "CPB-011",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-012",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-013",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 36,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "high-risk",
+        "score": 28
+      }
+    },
+    {
+      "id": "CPB-014",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 32,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "high-risk",
+        "score": 20
+      }
+    },
+    {
+      "id": "CPB-015",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-016",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 0,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "guarded",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-017",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 28,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "high-risk",
+        "score": 36
+      }
+    },
+    {
+      "id": "CPB-018",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 32,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "high-risk",
+        "score": 32
+      }
+    },
+    {
+      "id": "CPB-019",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-020",
+      "articleSetCorrect": false,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02",
+          "05"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-021",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 36,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "high-risk",
+        "score": 28
+      }
+    },
+    {
+      "id": "CPB-022",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 40,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "high-risk",
+        "score": 36
+      }
+    },
+    {
+      "id": "CPB-023",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-024",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-025",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 36,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "high-risk",
+        "score": 28
+      }
+    },
+    {
+      "id": "CPB-026",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 44,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "high-risk",
+        "score": 20
+      }
+    },
+    {
+      "id": "CPB-027",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 16,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "guarded",
+        "score": 84
+      }
+    },
+    {
+      "id": "CPB-028",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 8,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "guarded",
+        "score": 92
+      }
+    },
+    {
+      "id": "CPB-029",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 44,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "high-risk",
+        "score": 20
+      }
+    },
+    {
+      "id": "CPB-030",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 44,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "high-risk",
+        "score": 32
+      }
+    },
+    {
+      "id": "CPB-031",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-032",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-033",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-034",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      }
+    },
+    {
+      "id": "CPB-035",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 0,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "high-risk",
+        "score": 64
+      }
+    },
+    {
+      "id": "CPB-036",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      }
+    },
+    {
+      "id": "CPB-037",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-038",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "guarded",
+        "score": 92
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "guarded",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-039",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 80
+      },
+      "predicted": {
+        "articles": [
+          "01"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      }
+    },
+    {
+      "id": "CPB-040",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-041",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-042",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 8,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 84
+      }
+    },
+    {
+      "id": "CPB-043",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 16,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 80
+      }
+    },
+    {
+      "id": "CPB-044",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 24,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "high-risk",
+        "score": 76
+      }
+    },
+    {
+      "id": "CPB-045",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-046",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "guarded",
+        "score": 92
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-047",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 80
+      },
+      "predicted": {
+        "articles": [
+          "02"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 84
+      }
+    },
+    {
+      "id": "CPB-048",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-049",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-050",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 8,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 84
+      }
+    },
+    {
+      "id": "CPB-051",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 68
+      }
+    },
+    {
+      "id": "CPB-052",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 12,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      }
+    },
+    {
+      "id": "CPB-053",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-054",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 20,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "guarded",
+        "score": 92
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 72
+      }
+    },
+    {
+      "id": "CPB-055",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 12,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 80
+      },
+      "predicted": {
+        "articles": [
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 68
+      }
+    },
+    {
+      "id": "CPB-056",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-057",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-058",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 8,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 84
+      }
+    },
+    {
+      "id": "CPB-059",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 12,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "high-risk",
+        "score": 76
+      }
+    },
+    {
+      "id": "CPB-060",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 20,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "high-risk",
+        "score": 72
+      }
+    },
+    {
+      "id": "CPB-061",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-062",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "guarded",
+        "score": 92
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-063",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 80
+      },
+      "predicted": {
+        "articles": [
+          "04"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      }
+    },
+    {
+      "id": "CPB-064",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-065",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 0,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "high-risk",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-066",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 0,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "high-risk",
+        "score": 76
+      }
+    },
+    {
+      "id": "CPB-067",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 0,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "high-risk",
+        "score": 64
+      }
+    },
+    {
+      "id": "CPB-068",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      }
+    },
+    {
+      "id": "CPB-069",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-070",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "guarded",
+        "score": 92
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-071",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 80
+      },
+      "predicted": {
+        "articles": [
+          "05"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 84
+      }
+    },
+    {
+      "id": "CPB-072",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-073",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-074",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      }
+    },
+    {
+      "id": "CPB-075",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      }
+    },
+    {
+      "id": "CPB-076",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      }
+    },
+    {
+      "id": "CPB-077",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 0,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "guarded",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-078",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "guarded",
+        "score": 92
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-079",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 4,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 80
+      },
+      "predicted": {
+        "articles": [
+          "06"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      }
+    },
+    {
+      "id": "CPB-080",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-081",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 44,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "high-risk",
+        "score": 44
+      }
+    },
+    {
+      "id": "CPB-082",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 44,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "high-risk",
+        "score": 32
+      }
+    },
+    {
+      "id": "CPB-083",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 44,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "high-risk",
+        "score": 20
+      }
+    },
+    {
+      "id": "CPB-084",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 44,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "high-risk",
+        "score": 8
+      }
+    },
+    {
+      "id": "CPB-085",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-086",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 48,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "guarded",
+        "score": 92
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "high-risk",
+        "score": 44
+      }
+    },
+    {
+      "id": "CPB-087",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 48,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 80
+      },
+      "predicted": {
+        "articles": [
+          "07"
+        ],
+        "disposition": "high-risk",
+        "score": 32
+      }
+    },
+    {
+      "id": "CPB-088",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-089",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 0,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 88
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "high-risk",
+        "score": 88
+      }
+    },
+    {
+      "id": "CPB-090",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 0,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "high-risk",
+        "score": 76
+      }
+    },
+    {
+      "id": "CPB-091",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 36,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 64
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "high-risk",
+        "score": 28
+      }
+    },
+    {
+      "id": "CPB-092",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 36,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "high-risk",
+        "score": 52
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "high-risk",
+        "score": 16
+      }
+    },
+    {
+      "id": "CPB-093",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-094",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 52,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "guarded",
+        "score": 92
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "high-risk",
+        "score": 40
+      }
+    },
+    {
+      "id": "CPB-095",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 52,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 80
+      },
+      "predicted": {
+        "articles": [
+          "08"
+        ],
+        "disposition": "high-risk",
+        "score": 28
+      }
+    },
+    {
+      "id": "CPB-096",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 0,
+      "exactReplay": true,
+      "expected": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      },
+      "predicted": {
+        "articles": [],
+        "disposition": "no-explicit-conflict",
+        "score": 100
+      }
+    },
+    {
+      "id": "CPB-097",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 56,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "01",
+          "03"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "01",
+          "03"
+        ],
+        "disposition": "high-risk",
+        "score": 20
+      }
+    },
+    {
+      "id": "CPB-098",
+      "articleSetCorrect": true,
+      "dispositionCorrect": false,
+      "scoreError": 56,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "02",
+          "05"
+        ],
+        "disposition": "needs-safeguards",
+        "score": 76
+      },
+      "predicted": {
+        "articles": [
+          "02",
+          "05"
+        ],
+        "disposition": "high-risk",
+        "score": 20
+      }
+    },
+    {
+      "id": "CPB-099",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 32,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "04",
+          "05"
+        ],
+        "disposition": "guarded",
+        "score": 84
+      },
+      "predicted": {
+        "articles": [
+          "04",
+          "05"
+        ],
+        "disposition": "guarded",
+        "score": 52
+      }
+    },
+    {
+      "id": "CPB-100",
+      "articleSetCorrect": true,
+      "dispositionCorrect": true,
+      "scoreError": 40,
+      "exactReplay": false,
+      "expected": {
+        "articles": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "disposition": "high-risk",
+        "score": 40
+      },
+      "predicted": {
+        "articles": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05"
+        ],
+        "disposition": "high-risk",
+        "score": 0
+      }
+    }
+  ],
+  "boundary": "This is a public open-book regression result. Gold labels are public, contamination is possible, and the score is not evidence of legal competence, ethical authority, safety, governance legitimacy, or general intelligence."
+}
