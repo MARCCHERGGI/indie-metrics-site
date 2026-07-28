@@ -1,0 +1,73 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "CivicProof Leaderboard",
+  "version": "1.0.0",
+  "published": "2026-07-28",
+  "canonicalUrl": "https://marco-is-my-friend.marcohergee813.chatgpt.site/nation/leaderboard",
+  "benchmark": {
+    "name": "CivicProofBench 100",
+    "version": "2.0.0",
+    "caseCount": 100,
+    "url": "/civic-proof-bench.json",
+    "sha256": "8a8a9b1cdbd1596cc93cff186faa9d4181d8017a777a7462785a03f236cf71d6"
+  },
+  "metrics": {
+    "exactReplay": "Percentage of cases matching expected article set, disposition, and score.",
+    "articleSetAccuracy": "Percentage of cases with the exact expected constitutional article set.",
+    "dispositionAccuracy": "Percentage of cases with the expected disposition.",
+    "scoreMae": "Mean absolute error between produced and expected scores."
+  },
+  "verifiedRuns": [
+    {
+      "rank": 1,
+      "runId": "CPR-REF-20260728-001",
+      "system": "CIVIC-PROOF-1.0 reference engine",
+      "provider": "Marco Hergi",
+      "systemType": "deterministic lexical reference implementation",
+      "evaluatedAt": "2026-07-28T18:00:00Z",
+      "caseCount": 100,
+      "exactReplay": 100,
+      "articleSetAccuracy": 100,
+      "dispositionAccuracy": 100,
+      "scoreMae": 0,
+      "evidence": {
+        "benchmark": "/civic-proof-bench.json",
+        "modelCard": "/civic-proof-model-card.json",
+        "api": "/api/nation/evaluate",
+        "report": "/nation/leaderboard/reference"
+      },
+      "boundary": "A reference engine reproducing its own published rules is a consistency baseline, not evidence of general intelligence, legal competence, ethical judgment, or superiority over an external model."
+    }
+  ],
+  "awaitingIndependentRuns": [
+    {
+      "system": "OpenAI model",
+      "status": "not-yet-submitted",
+      "score": null
+    },
+    {
+      "system": "Anthropic model",
+      "status": "not-yet-submitted",
+      "score": null
+    },
+    {
+      "system": "Google model",
+      "status": "not-yet-submitted",
+      "score": null
+    },
+    {
+      "system": "Open-source model",
+      "status": "not-yet-submitted",
+      "score": null
+    }
+  ],
+  "submissionRequirements": [
+    "Run all 100 published cases without editing the inputs.",
+    "Publish the exact model identifier, provider, date, system prompt, parameters, and raw outputs.",
+    "Publish a stable HTTPS evidence URL and the benchmark SHA-256.",
+    "Disclose human review, retries, tool use, and excluded cases.",
+    "Consent to public verification before a score is listed."
+  ],
+  "boundary": "Missing runs are displayed as unverified, never as zero. Placement is based only on reproducible submitted evidence. No provider endorsement is implied."
+}
