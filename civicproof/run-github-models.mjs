@@ -13,7 +13,7 @@ const outputDirectory = resolve(
   process.env.CIVICPROOF_OUTPUT_DIR ?? "civicproof/results/github-models",
 );
 const model =
-  process.env.CIVICPROOF_MODEL ?? "meta/meta-llama-3.1-8b-instruct";
+  process.env.CIVICPROOF_MODEL ?? "microsoft/phi-4-mini-instruct";
 const endpoint = "https://models.github.ai/inference/chat/completions";
 const catalogEndpoint = "https://models.github.ai/catalog/models";
 const batchSize = Number(process.env.CIVICPROOF_BATCH_SIZE ?? 10);
