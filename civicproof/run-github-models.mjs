@@ -167,21 +167,24 @@ function validateBatch(parsed, cases) {
     }
     if (
       typeof prediction.score !== "number" ||
-      !Number.isFinite(prediction.score) ||
-      prediction.score < 0 ||
-      prediction.score > 100
+      !Number.isFinite(prediction.score)
     ) {
       throw new Error(`Invalid score for ${prediction.id}.`);
     }
+    const normalizedScore = Math.max(0, Math.min(100, prediction.score));
+    const normalizationNote =
+      normalizedScore === prediction.score
+        ? ""
+        : ` Parser normalization: finite score ${prediction.score} was clamped to ${normalizedScore} for schema compliance; the untouched value remains in rawOutput.`;
     return {
       id: prediction.id,
       articles: [...prediction.articles].sort(),
       disposition: prediction.disposition,
-      score: prediction.score,
+      score: normalizedScore,
       reasoningSummary:
         typeof prediction.reasoningSummary === "string"
-          ? prediction.reasoningSummary
-          : "",
+          ? `${prediction.reasoningSummary}${normalizationNote}`.trim()
+          : normalizationNote.trim(),
     };
   });
 }
@@ -356,6 +359,8 @@ const run = {
     evidenceUrl: githubRunUrl,
     notes:
       "External open-model inference executed by CivicProof project-maintainer CI. This is reproducible public evidence, not an independent third-party evaluation.",
+    normalization:
+      "Finite numeric model scores outside 0 through 100 are clamped to the nearest schema boundary. Raw model output is preserved unchanged for audit.",
   },
   predictions,
 };
