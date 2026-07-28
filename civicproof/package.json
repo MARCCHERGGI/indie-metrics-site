@@ -1,0 +1,11 @@
+{
+  "name": "civicproofbench-100",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Reproducible public-open-book civic evaluation package by Marco Hergi",
+  "license": "CC0-1.0",
+  "scripts": {
+    "verify": "node verify-release.mjs",
+    "score": "node civic-proof-score.mjs civic-proof-bench.json run.json report.json"
+  }
+}
