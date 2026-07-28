@@ -1,0 +1,28 @@
+name: Verify CivicProofBench release
+
+on:
+  push:
+    paths:
+      - "civicproof/**"
+      - ".github/workflows/civicproof-release.yml"
+  pull_request:
+    paths:
+      - "civicproof/**"
+      - ".github/workflows/civicproof-release.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: civicproof
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node verify-release.mjs
