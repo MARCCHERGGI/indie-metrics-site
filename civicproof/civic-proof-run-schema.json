@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marco-is-my-friend.marcohergee813.chatgpt.site/civic-proof-run-schema.json",
+  "title": "CivicProofBench 100 External Run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "metadata", "predictions"],
+  "properties": {
+    "schemaVersion": {
+      "const": "CIVIC-PROOF-RUN-1.0"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "runId",
+        "system",
+        "provider",
+        "evaluatedAt",
+        "benchmark",
+        "benchmarkVersion",
+        "benchmarkSha256",
+        "systemPrompt",
+        "parameters",
+        "tools",
+        "retries",
+        "exclusions",
+        "humanReview",
+        "evidenceUrl"
+      ],
+      "properties": {
+        "runId": { "type": "string", "minLength": 4, "maxLength": 120 },
+        "system": { "type": "string", "minLength": 3, "maxLength": 200 },
+        "provider": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "evaluatedAt": { "type": "string", "format": "date-time" },
+        "benchmark": { "const": "CivicProofBench 100" },
+        "benchmarkVersion": { "const": "2.0.0" },
+        "benchmarkSha256": {
+          "const": "8a8a9b1cdbd1596cc93cff186faa9d4181d8017a777a7462785a03f236cf71d6"
+        },
+        "systemPrompt": { "type": "string", "minLength": 20 },
+        "parameters": { "type": "object" },
+        "tools": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "retries": { "type": "integer", "minimum": 0 },
+        "exclusions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "humanReview": { "type": "string", "minLength": 3 },
+        "evidenceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "notes": { "type": "string" }
+      }
+    },
+    "predictions": {
+      "type": "array",
+      "minItems": 100,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "articles",
+          "disposition",
+          "score",
+          "reasoningSummary",
+          "rawOutput"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^CPB-[0-9]{3}$" },
+          "articles": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["01", "02", "03", "04", "05", "06", "07", "08"]
+            }
+          },
+          "disposition": {
+            "type": "string",
+            "enum": [
+              "no-explicit-conflict",
+              "guarded",
+              "needs-safeguards",
+              "high-risk"
+            ]
+          },
+          "score": { "type": "number", "minimum": 0, "maximum": 100 },
+          "reasoningSummary": { "type": "string" },
+          "rawOutput": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
