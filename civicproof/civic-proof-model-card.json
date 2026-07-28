@@ -1,0 +1,66 @@
+{
+  "name": "Civic Proof Engine",
+  "version": "CIVIC-PROOF-1.0",
+  "released": "2026-07-28",
+  "author": {
+    "name": "Marco Hergi",
+    "url": "https://marco-is-my-friend.marcohergee813.chatgpt.site/marco-hergi"
+  },
+  "canonicalUrl": "https://marco-is-my-friend.marcohergee813.chatgpt.site/nation/lab",
+  "purpose": "Route explicitly stated civic risks and safeguards to relevant constitutional articles and human-review questions.",
+  "architecture": {
+    "type": "deterministic lexical rules engine",
+    "externalModelCalls": false,
+    "trainingData": null,
+    "storesProposalText": false,
+    "directSafeguardNegationFilter": true,
+    "rules": 8,
+    "riskSignals": 54,
+    "safeguardSignals": 50
+  },
+  "inputs": {
+    "proposal": {
+      "type": "string",
+      "minimumCharacters": 20,
+      "maximumCharacters": 5000
+    }
+  },
+  "outputs": [
+    "provisional score",
+    "disposition",
+    "matched risk phrases",
+    "matched safeguards",
+    "triggered constitutional articles",
+    "human-review questions",
+    "canonical citations",
+    "method and benchmark links"
+  ],
+  "knownLimitations": [
+    "It can only match concepts expressed through published phrases.",
+    "A proposal can omit material facts and receive a low-risk result.",
+    "Direct safeguard negation is filtered, but complex negation and context can still create false positives or false negatives.",
+    "The score is not calibrated to real-world harm probability.",
+    "The rules reflect a draft community constitution and are not universal ethics.",
+    "The engine cannot determine legality, fairness, safety, intent, or public legitimacy."
+  ],
+  "appropriateUses": [
+    "first-pass policy review",
+    "transparent civic-risk routing",
+    "benchmarking deterministic tool behavior",
+    "generating questions for accountable human review"
+  ],
+  "prohibitedClaims": [
+    "legal compliance certification",
+    "ethical approval",
+    "AI safety certification",
+    "proof that a policy is harmless",
+    "substitute for affected-community consultation"
+  ],
+  "evaluation": {
+    "dataset": "/civic-proof-bench.json",
+    "caseCount": 100,
+    "categories": 8,
+    "license": "CC0-1.0"
+  },
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+}
