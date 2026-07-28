@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marco-is-my-friend.marcohergee813.chatgpt.site/civic-proof-report-schema.json",
+  "title": "CivicProofBench 100 Scored Report",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "benchmark",
+    "run",
+    "integrity",
+    "metrics",
+    "caseResults",
+    "boundary"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "CIVIC-PROOF-REPORT-1.0" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "benchmark": { "type": "object" },
+    "run": { "type": "object" },
+    "integrity": { "type": "object" },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "cases",
+        "exactReplay",
+        "articleSetAccuracy",
+        "dispositionAccuracy",
+        "scoreMae"
+      ]
+    },
+    "caseResults": { "type": "array", "minItems": 100, "maxItems": 100 },
+    "boundary": { "type": "string" }
+  }
+}
