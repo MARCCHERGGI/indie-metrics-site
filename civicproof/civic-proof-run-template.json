@@ -1,0 +1,827 @@
+{
+  "schemaVersion": "CIVIC-PROOF-RUN-1.0",
+  "metadata": {
+    "runId": "replace-with-stable-run-id",
+    "system": "Provider and exact model identifier",
+    "provider": "Provider or organization",
+    "evaluatedAt": "YYYY-MM-DDTHH:mm:ssZ",
+    "benchmark": "CivicProofBench 100",
+    "benchmarkVersion": "2.0.0",
+    "benchmarkSha256": "8a8a9b1cdbd1596cc93cff186faa9d4181d8017a777a7462785a03f236cf71d6",
+    "systemPrompt": "Paste the complete system instruction used for the run.",
+    "parameters": {
+      "temperature": null,
+      "topP": null,
+      "seed": null,
+      "maxOutputTokens": null
+    },
+    "tools": [],
+    "retries": 0,
+    "exclusions": [],
+    "humanReview": "none",
+    "evidenceUrl": "https://replace-with-stable-public-evidence-url.example",
+    "notes": ""
+  },
+  "predictions": [
+    {
+      "id": "CPB-001",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-002",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-003",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-004",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-005",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-006",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-007",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-008",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-009",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-010",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-011",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-012",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-013",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-014",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-015",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-016",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-017",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-018",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-019",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-020",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-021",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-022",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-023",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-024",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-025",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-026",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-027",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-028",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-029",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-030",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-031",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-032",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-033",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-034",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-035",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-036",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-037",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-038",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-039",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-040",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-041",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-042",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-043",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-044",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-045",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-046",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-047",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-048",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-049",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-050",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-051",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-052",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-053",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-054",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-055",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-056",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-057",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-058",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-059",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-060",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-061",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-062",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-063",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-064",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-065",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-066",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-067",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-068",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-069",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-070",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-071",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-072",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-073",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-074",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-075",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-076",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-077",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-078",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-079",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-080",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-081",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-082",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-083",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-084",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-085",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-086",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-087",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-088",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-089",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-090",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-091",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-092",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-093",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-094",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-095",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-096",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-097",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-098",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-099",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    },
+    {
+      "id": "CPB-100",
+      "articles": [],
+      "disposition": null,
+      "score": null,
+      "reasoningSummary": "",
+      "rawOutput": ""
+    }
+  ]
+}
