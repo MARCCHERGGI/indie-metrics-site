@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use CivicProofBench, cite this project."
+title: "CivicProofBench 100"
+type: dataset
+version: 2.0.0
+date-released: 2026-07-28
+authors:
+  - family-names: Hergi
+    given-names: Marco
+url: "https://marco-is-my-friend.marcohergee813.chatgpt.site/nation/leaderboard"
+license: CC0-1.0
+abstract: "One hundred gold cases for transparent civic-risk evaluation across eight constitutional principles."
