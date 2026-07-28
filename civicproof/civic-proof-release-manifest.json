@@ -48,7 +48,10 @@
     },
     "huggingFace": "prepared-not-published",
     "inspectAi": "compatible-json-aware-artifact-published-on-canonical-site",
-    "githubActions": "workflow-source-prepared-for-publication"
+    "githubActions": {
+      "status": "published",
+      "url": "https://github.com/MARCCHERGGI/indie-metrics-site/actions/workflows/civicproof-release.yml"
+    }
   },
   "evaluationClass": "public-open-book-regression",
   "boundary": "Gold labels are public and contamination is possible. Prepared external packages are not represented as externally published until the respective platform confirms publication. A score is not proof of legal competence, ethical authority, safety, governance legitimacy, or general intelligence."
